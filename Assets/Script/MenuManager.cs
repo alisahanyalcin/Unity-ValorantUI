@@ -23,28 +23,29 @@ public class MenuManager : MonoBehaviour
 
     public void OpenMenu(string menuName)
     {
-        for (int i = 0; i < menus.Length; i++)
+        foreach (var t in menus)
         {
-            if(menus[i].menuName == menuName)
+            if(t.menuName == menuName)
             {
-                menus[i].Open();
+                t.Open();
             }
-            else if(menus[i].open)
+            else if(t.open)
             {
-                CloseMenu(menus[i]);
+                CloseMenu(t);
             }
         }
     }
 
     public void OpenMenu(Menu menu)
     {
-        for (int i = 0; i < menus.Length; i++)
+        foreach (var t in menus)
         {
-            if(menus[i].open)
+            if(t.open)
             {
-                CloseMenu(menus[i]);
+                CloseMenu(t);
             }
         }
+
         menu.Open();
     }
 
