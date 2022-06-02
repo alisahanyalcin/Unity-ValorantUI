@@ -8,16 +8,25 @@ namespace alisahanyalcin
 {
     public class RefreshLayout : MonoBehaviour
     {
-        [SerializeField] private HorizontalLayoutGroup layoutGroup;
+        [SerializeField] private HorizontalLayoutGroup horizontalLayout;
+        [SerializeField] private VerticalLayoutGroup verticalLayout;
 
         private void Awake()
         {
             Invoke(nameof(Refresh), 0.001f);
         }
-
+        
         private void Refresh()
         {
-            layoutGroup.childControlHeight = true;
+            if (horizontalLayout != null)
+            {
+                horizontalLayout.childControlHeight = true;
+            }
+            
+            if (verticalLayout != null)
+            {
+                verticalLayout.childControlHeight = true;
+            }
         }
     }
 }

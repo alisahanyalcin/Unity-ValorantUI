@@ -12,13 +12,9 @@ public class MenuManager : MonoBehaviour
     private void Awake()
     {
         if (Singleton == null)
-        {
             Singleton = this;
-        }
         else
-        {
             Destroy(this);
-        }
     }
 
     public void OpenMenu(string menuName)
@@ -26,13 +22,9 @@ public class MenuManager : MonoBehaviour
         foreach (var t in menus)
         {
             if(t.menuName == menuName)
-            {
                 t.Open();
-            }
             else if(t.open)
-            {
                 CloseMenu(t);
-            }
         }
     }
 
@@ -41,15 +33,13 @@ public class MenuManager : MonoBehaviour
         foreach (var t in menus)
         {
             if(t.open)
-            {
                 CloseMenu(t);
-            }
         }
 
         menu.Open();
     }
 
-    public void CloseMenu(Menu menu)
+    private void CloseMenu(Menu menu)
     {
         menu.Close();
     }
